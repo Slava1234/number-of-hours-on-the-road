@@ -1,4 +1,3 @@
-package arba.kz.gps.gps.arbagps.model;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,71 +10,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.google.gson.Gson;
-
-import lombok.Getter;
-import lombok.Setter;
-
-@Entity
-@Table(name = "tc_positions")
-@JsonIgnoreProperties({ "attributes" })
-public class Position /* extends BaseModel */ {
-
-	@Getter
-	@Setter
-	@Id
-	private Long id;
-
-	private String attributes;
-
-	public Map<String, Object> getAttributesJson() {
-		if (this.attributes == null)
-			return null;
-		Gson gson = new Gson();
-		return gson.fromJson(this.attributes, Map.class);
-	}
-
-	@Getter
-	private Long deviceid;
-
-	@Getter
-	private String protocol;
-
-	@Getter
-	private Date servertime = new Date();
-
-	@Getter
-	private Calendar devicetime;
-
-	@Getter
-	private Boolean valid;
-
-	@Getter
-	private Double latitude;
-
-	@Getter
-	private Double longitude;
-
-	@Getter
-	private Double altitude; // value in meters
-
-	// если приходит в узлах то: узлы * 1.852 = км
-	@Getter
-	private Double speed;
-
-	@Getter
-	private Double course;
-
-	@Getter
-	private String address;
-
-	@Getter
-	private Double accuracy;
+public class Main {
 
 	public static void main(String[] args) {
 
@@ -146,10 +82,6 @@ public class Position /* extends BaseModel */ {
 		    }
 			prevObj = currentPair.getValue();
 		}
-		
-		
-		
-		
 		
 		
 		
